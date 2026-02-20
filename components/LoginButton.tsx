@@ -11,10 +11,13 @@ export default function LoginButton() {
   const supabase = createClient();
 
   const handleLogin = async () => {
+    // Redirect to auth callback which will handle the OAuth flow
+    const redirectUrl = `${window.location.origin}/auth/callback`;
+
     await supabase.auth.signInWithOAuth({
       provider: 'x',
       options: {
-        redirectTo: `${window.location.origin}/dashboard`,
+        redirectTo: redirectUrl,
         scopes: 'tweet.read tweet.write users.read offline.access',
       },
     });
