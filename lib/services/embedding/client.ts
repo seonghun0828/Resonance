@@ -6,15 +6,15 @@
  */
 
 import OpenAI from 'openai';
-import { env } from '@/lib/config/env';
+import { serverEnv } from '@/lib/config/env';
 import { CONSTANTS } from '@/lib/config/constants';
 import { EmbeddingRequest, EmbeddingResponse } from '@/lib/types/embedding';
 import { OpenAIError } from '@/lib/utils/errors';
 import { logger } from '@/lib/utils/logger';
 
-// Initialize OpenAI client
+// Initialize OpenAI client (server-side only)
 const openai = new OpenAI({
-  apiKey: env.OPENAI_API_KEY,
+  apiKey: serverEnv.OPENAI_API_KEY,
 });
 
 /**
