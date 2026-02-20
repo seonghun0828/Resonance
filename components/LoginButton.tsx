@@ -12,7 +12,7 @@ export default function LoginButton() {
 
   const handleLogin = async () => {
     await supabase.auth.signInWithOAuth({
-      provider: 'twitter',
+      provider: 'x',
       options: {
         redirectTo: `${window.location.origin}/dashboard`,
         scopes: 'tweet.read tweet.write users.read offline.access',
